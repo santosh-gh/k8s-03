@@ -27,6 +27,8 @@
 
 # Log in to ACR
     az acr login --name $ACR_NAME
+    
+# You may want to use 'az acr login -n acronlinestoredevuksouth001 --expose-token' to get a refresh token, which does not require Docker to be installed.
 
 # Tag and push the Docker images
 
