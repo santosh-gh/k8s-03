@@ -93,6 +93,6 @@ stages:
           helm pull oci://${{ variables.acrName }}.azurecr.io/helm/${{ variables.helmChartName }} --version ${{ variables.helmChartVersion }} --untar
 
           echo "Deploy with Helm"
-          helm upgrade --install ${{ variables.helmChartName }} ./myapp \
+          helm upgrade --install ${{ variables.helmChartName }} ./${{ variables.helmChartName }}-${{ variables.helmChartVersion }} \
             --namespace default
 
