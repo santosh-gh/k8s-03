@@ -8,7 +8,7 @@ variables:
   namespace: 'default'
   aksResourceGroup: 'rg-onlinestore-dev-uksouth-001'
   helmChartPath: './helmchart/'
-  helmChartName: 'myapp'
+  helmChartName: 'mychart'
   helmChartVersion: '0.1.0'
   tag: '$(Build.BuildId)'
 
@@ -62,7 +62,7 @@ stages:
           export HELM_EXPERIMENTAL_OCI=1
 
           echo "Push Helm chart to ACR"
-          helm push ./mychart-${{ variables.helmChartVersion }}.tgz oci://${{ variables.acrName }}.azurecr.io/helm
+          helm push ./${{ variables.helmChartName }}-${{ variables.helmChartVersion }}.tgz oci://${{ variables.acrName }}.azurecr.io/helm
 
 - stage: Deploy
   displayName: Deploy to AKS
@@ -93,6 +93,6 @@ stages:
           helm pull oci://${{ variables.acrName }}.azurecr.io/helm/${{ variables.helmChartName }} --version ${{ variables.helmChartVersion }} --untar
 
           echo "Deploy with Helm"
-          helm upgrade --install ${{ variables.helmChartName }} ./${{ variables.helmChartPath }}-${{ variables.helmChartVersion }} \
+          helm upgrade --install storeapp ./${{ variables.helmChartName }}-${{ variables.helmChartVersion }} \
             --namespace default
 
