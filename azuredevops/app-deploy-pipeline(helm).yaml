@@ -95,4 +95,8 @@ stages:
           echo "Deploy with Helm"
           helm upgrade --install storeapp ./${{ variables.helmChartName }}:${{ variables.helmChartVersion }} \
             --namespace default
+  
 
+    - script: |
+                echo "Listing ArtifactsDirectory:"
+                ls -R "$(System.ArtifactsDirectory)"
