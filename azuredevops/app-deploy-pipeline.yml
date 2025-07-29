@@ -9,6 +9,7 @@ variables:
   aksCluster: 'aks-onlinestore-dev-uksouth-001'
   aksResourceGroup: 'rg-onlinestore-dev-uksouth-001'
   helmChartPath: './helmchart/'
+  namespace: "default"
 
 stages:
 # - stage: Build
