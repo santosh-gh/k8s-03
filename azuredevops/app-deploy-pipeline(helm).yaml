@@ -96,7 +96,7 @@ stages:
           ls -R "$(System.ArtifactsDirectory)"
 
           echo "Deploy with Helm"
-          helm upgrade --install storeapp ${{ variables.helmChartName }}:${{ variables.helmChartVersion }} \
+          helm upgrade --install storeapp helm/mychart:0.1.0 \
             --namespace default
   
 
