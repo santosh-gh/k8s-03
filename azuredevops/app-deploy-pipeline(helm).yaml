@@ -92,11 +92,12 @@ stages:
           echo "Pull Helm chart from ACR"
           helm pull oci://${{ variables.acrName }}.azurecr.io/helm/${{ variables.helmChartName }} --version ${{ variables.helmChartVersion }} --untar
 
+          echo "Listing ArtifactsDirectory:"
+          ls -R "$(System.ArtifactsDirectory)"
+
           echo "Deploy with Helm"
           helm upgrade --install storeapp ./${{ variables.helmChartName }}:${{ variables.helmChartVersion }} \
             --namespace default
   
 
-    - script: |
-                echo "Listing ArtifactsDirectory:"
-                ls -R "$(System.ArtifactsDirectory)"
+               
