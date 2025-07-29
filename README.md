@@ -50,6 +50,16 @@
 # Deploy all the services using manifest files
     k apply -f ./manifests
 
+# Delete all the services using manifest files  
+    k delete -f ./manifests
+
+# Deploy all the services using helm chart
+    helm install storeapp ./helmchart
+# Upgrade using helm chart
+    helm upgrade storeapp ./helmchart
+# Delete Services using helm
+    helm uninstall storeapp
+
 # Clean the Azure resources
     az group delete --name rg-onlinestore-dev-uksouth-001 --yes --no-wait
 
