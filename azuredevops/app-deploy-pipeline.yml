@@ -29,7 +29,7 @@ stages:
 #           $(Build.BuildId)
 
 - stage: Deploy
-  dependsOn: Build
+  # dependsOn: Build
   jobs:
   - job: HelmDeploy
     pool:
