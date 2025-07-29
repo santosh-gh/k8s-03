@@ -53,7 +53,7 @@ stages:
         scriptLocation: inlineScript
         inlineScript: |
           echo "Package Helm chart"
-          helm package ./${{ variables.helmChartName }} --version ${{ variables.helmChartVersion }} -d .
+          helm package ./${{ variables.helmChartPath }} --version ${{ variables.helmChartVersion }} -d .
 
           echo "Login to ACR for Helm push"
           az acr login --name ${{ variables.acrName }}
@@ -62,7 +62,7 @@ stages:
           export HELM_EXPERIMENTAL_OCI=1
 
           echo "Push Helm chart to ACR"
-          helm push ./${{ variables.helmChartName }}-${{ variables.helmChartVersion }}.tgz oci://${{ variables.acrName }}.azurecr.io/helm
+          helm push ./${{ variables.helmChartPath }}-${{ variables.helmChartVersion }}.tgz oci://${{ variables.acrName }}.azurecr.io/helm
 
 - stage: Deploy
   displayName: Deploy to AKS
@@ -93,6 +93,6 @@ stages:
           helm pull oci://${{ variables.acrName }}.azurecr.io/helm/${{ variables.helmChartName }} --version ${{ variables.helmChartVersion }} --untar
 
           echo "Deploy with Helm"
-          helm upgrade --install ${{ variables.helmChartName }} ./${{ variables.helmChartName }}-${{ variables.helmChartVersion }} \
+          helm upgrade --install ${{ variables.helmChartName }} ./${{ variables.helmChartPath }}-${{ variables.helmChartVersion }} \
             --namespace default
 
