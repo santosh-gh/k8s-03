@@ -2,7 +2,7 @@
 
 Prerequisites
 
-    A valid Azure subscription
+    A valid Azure subscription : https://portal.azure.com/
 
     Azure CLI : https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
 
@@ -11,6 +11,8 @@ Prerequisites
     bash shell: Most Linux/macOS systems already have this. For Windows, use Git Bash or WSL: https://www.atlassian.com/git/tutorials/git-bash
 
     Docker Desktop for building and pushing images locally: https://docs.docker.com/desktop/
+
+    Install Bicep: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install
 
 # Login to Azure
 
