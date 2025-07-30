@@ -1,4 +1,13 @@
-# Deploying microservice applications in AKS using ACR image repositories with Azure DevOps Infra (bicep) and App Pipelines
+# Deploying microservice applications in AKS using 
+
+    Infra deploy: Azure Devops Infra Pipeline with Bicep
+                  Bicep files in DevOps Artifact
+
+    Docker build and push images to ACR: Azure Build Pipeline
+
+    k8s manifests: DevOps Publish Artifact
+    
+    App deploy: kubectl Apply in Azure Devops App Pipeline
 
 Prerequisites
 
