@@ -69,21 +69,21 @@ Prerequisites
 
     k get all
 
-# Configure and run the Order Build Pipeline
+# Configure and run the Order Build and Deploy Pipeline
 
     order-pipeline.yaml
 
-# Configure and run the Product Build Pipeline
+# Configure and run the Product Build and Deploy Pipeline
 
     product-pipeline.yaml
 
-# Configure and run the store front Build Pipeline
+# Configure and run the store front Build and Deploy Pipeline
  
     store-front-pipeline.yaml
 
-# Configure and run the rabbitmq Build Pipeline
+# Configure and run the rabbitmq Deploy Pipeline
 
-    order-pipeline.yaml
+    rabbitmq-pipeline.yaml
 
 # Write Kubernetes YAML Manifests for the applicatons
 
@@ -96,10 +96,6 @@ Prerequisites
     store-front-service.yml
     rabbitmq-deployment.yml
     rabbitmq-service.yml
-
-# Configure and run the app deploy Pipeline
-
-    app-deploy-pipeline.yml
 
 # Verify the Deployment
 
