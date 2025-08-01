@@ -59,6 +59,9 @@ Prerequisites
 
 # Connect to cluster
 
+    RESOURCE_GROUP="rg-onlinestore-dev-uksouth-001"
+    AKS_NAME="aks-onlinestore-dev-uksouth-001"
+
     az aks get-credentials --resource-group $(RESOURCE_GROUP) --name $(AKS_NAME)
 
 # Short name for kubectl
