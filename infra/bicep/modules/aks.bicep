@@ -31,8 +31,8 @@ resource aks 'Microsoft.ContainerService/managedClusters@2025-05-01' = {
    type: 'SystemAssigned' 
   }
   sku: {
-    name: 'Basic'
-    tier: 'Free'
+    name: 'Base'
+    tier: 'Standard'
   }
   properties: {
     dnsPrefix: dnsPrefix
