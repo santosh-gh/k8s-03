@@ -85,15 +85,3 @@ module roleAssignments 'modules/roleassignments.bicep' = {
     acrPullRoleDefinitionId: acrPullRoleDefinitionId    
   }
 }
-
-// // Deploy vnet with subnets
-// module network 'modules/network.bicep' = {
-//   name: 'NetworkDeploy'
-//   scope: resourceGroup(resGroup.name)
-//   params: {
-//     vnetName: 'vnet-${resourceLocator}'
-//     location: location
-//     vnetAddressPrefix: vnetAddressPrefix
-//     subnets: subnets
-//   }  
-// }

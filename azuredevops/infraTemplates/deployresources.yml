@@ -25,10 +25,10 @@ jobs:
                   Write-Host "STARTING DEPLOYMENT......."
                   
                   $validationResult = az deployment sub create --location uksouth --template-file $filename --parameters $parametersfilename
-                  # if($validationResult.Contains("InvalidTemplate"))
-                  # {
-                  #   throw $validationResult
-                  # }
+                  if($validationResult.Contains("InvalidTemplate"))
+                  {
+                    throw $validationResult
+                  }
                   Write-Output "Successfully validated $file.FullName"
 
             
