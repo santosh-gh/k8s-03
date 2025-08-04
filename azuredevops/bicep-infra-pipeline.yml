@@ -10,7 +10,7 @@ pool:
 
 variables:  
   - group: k8s-dev
-  - environment: "dev"  
+environment: "dev"  
 
 stages:
   - stage: Build
