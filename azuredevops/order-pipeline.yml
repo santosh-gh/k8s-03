@@ -9,10 +9,10 @@ pool:
 variables:
 - group: 'k8s-dev'
 
-namespace: 'default'
-artifactName: 'manifests'
-imageTag: $(Build.BuildId)   
-imageName: 'order'
+  namespace: 'default'
+  artifactName: 'manifests'
+  imageTag: $(Build.BuildId)   
+  imageName: 'order'
 
 stages:
   - stage: Build
