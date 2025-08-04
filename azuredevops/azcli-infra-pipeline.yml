@@ -7,15 +7,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  scriptPath: 'infra/azcli/script.sh'
-  artifactName: 'deployment-scripts'
-  environment: 'dev'
-  group: 'k8s-dev'  # Reference your variable group by name
+- group: 'k8s-dev'
+- name: scriptPath
+  value: 'infra/azcli/script.sh'
+- name: artifactName 
+  value: 'deployment-scripts'
 
 stages:
-
-# Stage 1 - Publish the script
-- stage: PublishScript
+- stage: PublishScript  # Stage 1 - Publish the script
   displayName: 'Publish Script'
   jobs:
   - job: Publish
@@ -27,8 +26,7 @@ stages:
         artifact: '$(artifactName)'
         publishLocation: 'pipeline'
 
-# Stage 2 - Download & Run the Script
-- stage: Deploy
+- stage: Deploy # Stage 2 - Deploy the resources 
   displayName: 'Deploy Resources'
   dependsOn: PublishScript
   jobs:
