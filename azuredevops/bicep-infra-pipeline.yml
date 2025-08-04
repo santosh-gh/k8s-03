@@ -9,7 +9,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:  
-  - group: 'k8s-dev'  
+  - group: 'k8s-dev'
 
 stages:
   - stage: Build

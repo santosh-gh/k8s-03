@@ -15,10 +15,6 @@ param location string
 
 var resourceLocator = '${projectName}-${environment}-${location}-${resourceInstance}'
 
-// Netework parameters
-param vnetAddressPrefix string
-param subnets array = []
-
 // Parameters for AKS
 @description('The number of nodes for the cluster.')
 @minValue(1)
@@ -52,36 +48,36 @@ resource resGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   location: location
 }
 
-module acr 'modules/acr.bicep' = {
-  name: 'ACR-deployment'
-  scope: resourceGroup(resGroup.name)
-  params: {
-    acrName: 'acr${projectName}${environment}${location}${resourceInstance}'
-    location: location
-  }
-}
+// module acr 'modules/acr.bicep' = {
+//   name: 'ACR-deployment'
+//   scope: resourceGroup(resGroup.name)
+//   params: {
+//     acrName: 'acr${projectName}${environment}${location}${resourceInstance}'
+//     location: location
+//   }
+// }
 
-module aks 'modules/aks.bicep' = {
-  name: 'AKS-Deployment'
-  scope: resourceGroup(resGroup.name)
-  params: {
-    aksName: 'aks-${resourceLocator}'
-    location: location
-    agentCount: agentCount
-    agentVMSize: agentVMSize
-    linuxAdminUsername: linuxAdminUsername
-    sshRSAPublicKey: sshRSAPublicKey
-    dnsPrefix: dnsPrefix
-    osDiskSizeGB: osDiskSizeGB
-  }
-}
+// module aks 'modules/aks.bicep' = {
+//   name: 'AKS-Deployment'
+//   scope: resourceGroup(resGroup.name)
+//   params: {
+//     aksName: 'aks-${resourceLocator}'
+//     location: location
+//     agentCount: agentCount
+//     agentVMSize: agentVMSize
+//     linuxAdminUsername: linuxAdminUsername
+//     sshRSAPublicKey: sshRSAPublicKey
+//     dnsPrefix: dnsPrefix
+//     osDiskSizeGB: osDiskSizeGB
+//   }
+// }
 
-module roleAssignments 'modules/roleassignments.bicep' = {
-  name: 'RoleAssignments-Deployment'
-  scope: resourceGroup(resGroup.name)
-  params: {
-    aksId: aks.outputs.aksId
-    principalId: aks.outputs.principalId // Principal ID of the AKS cluster
-    acrPullRoleDefinitionId: acrPullRoleDefinitionId    
-  }
-}
+// module roleAssignments 'modules/roleassignments.bicep' = {
+//   name: 'RoleAssignments-Deployment'
+//   scope: resourceGroup(resGroup.name)
+//   params: {
+//     aksId: aks.outputs.aksId
+//     principalId: aks.outputs.principalId // Principal ID of the AKS cluster
+//     acrPullRoleDefinitionId: acrPullRoleDefinitionId    
+//   }
+// }
