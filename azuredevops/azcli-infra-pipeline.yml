@@ -9,8 +9,8 @@ pool:
 variables:
   scriptPath: 'infra/azcli/script.sh'
   artifactName: 'deployment-scripts'
-  serviceConnection: 'arm-svc-con' 
   environment: 'dev'
+  group: 'k8s-dev'  # Reference your variable group by name
 
 stages:
 

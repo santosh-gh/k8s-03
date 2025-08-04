@@ -18,7 +18,7 @@ stages:
       - template: infraTemplates/infravalidation.yml
         parameters:
           environment: $(environment)
-          serviceconnection: $(ado-svc-connection)
+          serviceconnection: $(serviceConnection)
 
   - stage: Dev
     displayName: "Dev"
@@ -26,4 +26,4 @@ stages:
       - template: infraTemplates/deployresources.yml
         parameters:
           environment: $(environment)
-          serviceconnection: $(ado-svc-connection)
+          serviceconnection: $(serviceConnection)
