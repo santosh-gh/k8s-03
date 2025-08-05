@@ -136,5 +136,4 @@
 
 # Clean the Azure resources
 
-    az group delete --name rg-onlinestore-dev-uksouth-001 --yes --no-wait 
-    App deploy: kubectl Apply in Azure Devops App Pipeline
+    az group delete --name rg-onlinestore-dev-uksouth-001 --yes --no-wait
